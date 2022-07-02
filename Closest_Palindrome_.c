@@ -1,7 +1,8 @@
 #include<stdio.h>
-int palindrome(int n)
+int pal(int n)
 {
-    int d,r=0,c=n;
+    int d,r=0,c;
+    c=n;
     while(n>0)
     {
         d=n%10;
@@ -12,52 +13,45 @@ int palindrome(int n)
     {
         return 1;
     }
-    return 0;
+   
+        return 0;
     
 }
 int main()
 {
-    int n,i,j,diff1,diff2,pal1,pal2;
-    scanf("%d",&n);
-    for(i=n-1;i>=1;i--)
+    int a;
+    scanf("%d",&a);
+    int diff1=0,diff2=0,i,j;    
+    int pal1,pal2;
+    for(i=a+1;i<=10000;i++)
     {
-        if(palindrome(i)==1)
+        if(pal(i)==1)
         {
-            diff1=n-i;
+            diff1=i-a;
             pal1=i;
             break;
         }
     }
-    for(j=n+1;j<=10000;j++)
+    for(i=a-1;i>0;i--)
     {
-        if(palindrome(j)==1)
+        if(pal(i)==1)
         {
-            diff2=j-n;
-            pal2=j;
+            diff2=a-i;
+            pal2=i;
             break;
         }
     }
     if(diff1==diff2)
     {
-        printf("%d %d",pal1,pal2);
-    }
-    else if(diff1<diff2)
-    {
-        printf("%d",pal1);
+         printf("%d %d",pal2,pal1);
     }
     else if(diff1>diff2)
     {
         printf("%d",pal2);
     }
-    else
+    else if(diff1<diff2)
     {
-        if(pal1>pal2)
-        {
-            printf("%d",pal2);
-        }
-        else
-        {
-            printf("%d",pal1);
-        }
+        printf("%d",pal1);
     }
+    return 0;
 }
