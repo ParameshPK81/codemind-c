@@ -1,4 +1,4 @@
-#include<stdio.h>
+	#include<stdio.h>
 int isprime(int n)
 {
     int i,c=0;
